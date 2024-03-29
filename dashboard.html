@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Contact Manager</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Akun</h2>
+    <ul>
+      <li><a href="#" class="active">Dashboard</a></li>
+      <li><a href="#">Kontak</a></li>
+      <li><a href="#">Grup Kontak</a></li>
+      <li><a href="#">Pengaturan</a></li>
+      <li><a href="#" id="logout-btn">Logout</a></li> <!-- Tambahkan id="logout-btn" -->
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="header">
+      <h1>Contact Manager Dashboard</h1>
+      <a href="#" class="add-btn">Tambah Kontak</a>
+    </div>
+    <table id="contact-table">
+      <thead>
+        <tr>
+          <th>No ID</th>
+          <th>No HP</th>
+          <th>Owner</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data tabel akan di-generate melalui backend atau menggunakan JavaScript -->
+        <tr>
+          <td>1</td>
+          <td>081234567890</td>
+          <td>Alexxa Jenna</td>
+          <td>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>081294298122</td>
+            <td>Jeong jeyun</td>
+            <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+        </tr>
+        <!-- Tambahkan data lainnya sesuai kebutuhan -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal untuk Tambah/Mengubah Kontak -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Tambah/Mengubah Kontak</h2>
+      <form id="contact-form">
+        <label for="contact-id">No ID:</label>
+        <input type="text" id="contact-id" name="contact-id" readonly>
+        <label for="contact-phone">No HP:</label>
+        <input type="text" id="contact-phone" name="contact-phone" required>
+        <label for="contact-owner">Owner:</label>
+        <input type="text" id="contact-owner" name="contact-owner" required>
+        <button type="submit" id="save-contact-btn">Simpan</button>
+        <button type="button" class="cancel-btn">Batal</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('logout-btn').addEventListener('click', function() {
+      // Redirect to login page
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
