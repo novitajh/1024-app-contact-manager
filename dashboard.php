@@ -1,5 +1,5 @@
 <?php
-include 'models.php';
+include 'database.php';
 
 // Membuat objek Contacts
 $contacts = new Contacts();
@@ -34,7 +34,7 @@ $result = $contacts->selectContacts();
   <div class="content">
     <div class="header">
       <h1>Contacts Manager Dashboard</h1>
-      <a href="#" class="add-btn">Tambah Kontak</a>
+      <a href="add_contact.php" class="add-btn">Tambah Kontak</a>
     </div>
     <table id="contact-table">
       <thead>
@@ -66,8 +66,8 @@ $result = $contacts->selectContacts();
               echo "<td>" . $row["jenis_kelamin"] . "</td>";
               echo "<td>" . $row["perusahaan"] . "</td>";
               echo "<td>
-                        <button class='edit-btn'>Edit</button>
-                        <button class='delete-btn'>Delete</button>
+                        <button class='edit-btn' onclick='editContact(" . $row['id_contact'] . ")'>Edit</button>
+                        <button class='delete-btn' onclick='deleteContact(" . $row['id_contact'] . ")'>Delete</button>
                     </td>";
               echo "</tr>";
           }
@@ -79,39 +79,25 @@ $result = $contacts->selectContacts();
     </table>
   </div>
 
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <form id="contact-form">
-        <label for="contact-email">Email:</label>
-        <input type="email" id="contact-email" name="contact-email" required>
-        
-        <label for="contact-address">Alamat:</label>
-        <input type="text" id="contact-address" name="contact-address" required>
-        
-        <label for="contact-dob">Tanggal Lahir:</label>
-        <input type="date" id="contact-dob" name="contact-dob" required>
-        
-        <label for="contact-gender">Jenis Kelamin:</label>
-        <select id="contact-gender" name="contact-gender" required>
-          <option value="Perempuan">Perempuan</option>
-          <option value="Laki-laki">Laki-laki</option>
-        </select>
-        
-        <label for="contact-company">Perusahaan:</label>
-        <input type="text" id="contact-company" name="contact-company" required>
-        
-        <button type="submit" id="save-contact-btn">Simpan</button>
-        <button type="button" class="cancel-btn">Batal</button>
-      </form>
-    </div>
-  </div>
-
   <script src="script.js"></script>
   <script>
     document.getElementById('logout-btn').addEventListener('click', function() {
       // Redirect to login page
       window.location.href = 'login.html';
     });
+
+    function editContact(id) {
+      // Redirect to edit_contact.php with contact ID as parameter
+      window.location.href = 'edit_contact.php?id=' + id;
+    }
+
+    function deleteContact(id) {
+      // Confirmation dialog
+      if (confirm('Apakah Anda yakin ingin menghapus kontak ini?')) {
+        // Send request to delete_contact.php with contact ID as parameter
+        window.location.href = 'delete_contact.php?id=' + id;
+      }
+    }
   </script>
 </body>
 </html>
