@@ -18,8 +18,9 @@ if(isset($_GET['id'])){
         // Jika berhasil, kirimkan respons dengan pesan sukses
         echo "Kontak berhasil dihapus.";
         
-        // Redirect to dashboard
+        // Redirect to dashboard using JavaScript
         echo "<script>window.location.href = 'dashboard.php';</script>";
+        exit; // Hentikan eksekusi script PHP setelah melakukan redirect
     } else {
         // Jika gagal, kirimkan respons dengan pesan gagal
         echo "Gagal menghapus kontak.";
