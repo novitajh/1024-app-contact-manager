@@ -1,0 +1,14 @@
+# DATABASE CONNECTION
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+DB_NAME=contacts
+
+# ADMIN CREDENTIALS
+NAME=Nafisa Hana
+USERNAME=nana
+EMAIL=nananina@gmail.com
+PASSWORD=admin123
+
+# BASEURL
+BASEURL=http://localhost/app%20contacts%20manager/
