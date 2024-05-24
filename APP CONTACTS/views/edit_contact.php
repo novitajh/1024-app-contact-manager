@@ -49,7 +49,6 @@ $contact = $contactController->getContactById($id_contact);
 
             <label for="perusahaan">Perusahaan:</label>
             <input type="text" id="perusahaan" name="perusahaan" value="<?php echo $contact['perusahaan']; ?>" required>
-
             <button type="submit">Simpan</button>
         </form>
     </div>
