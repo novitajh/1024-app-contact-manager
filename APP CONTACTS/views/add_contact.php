@@ -33,7 +33,6 @@
 
         <label for="perusahaan">Perusahaan:</label>
         <input type="text" id="perusahaan" name="perusahaan" required><br>
-
         <button type="submit">Simpan</button>
     </form>
 </div>
