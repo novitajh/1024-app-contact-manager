@@ -19,5 +19,7 @@ Router::url('/contacts/insertData', 'post', 'ContactController::insertData');
 Router::url('/contacts/updateData', 'post', 'ContactController::updateData');
 Router::url('/contacts/deleteContactController', 'post', 'ContactController::deleteContactController');
 
+# API GET
+Router::url('outside', 'get', 'ContactController::api');
 new Router();
 ?>
