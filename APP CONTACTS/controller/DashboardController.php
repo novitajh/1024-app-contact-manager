@@ -25,7 +25,6 @@ class DashboardController {
             view('dashboard', ['url' => 'admin', 'user' => $_SESSION['user']]);
         }
     }
-
     static function contacts() {
         if (!isset($_SESSION['user'])) {
             header('Location: '.BASEURL.'login?auth=false');
