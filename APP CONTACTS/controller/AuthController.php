@@ -18,7 +18,6 @@ class AuthController {
             'password' => $post['password']
         ]);
         if ($user) {
-            unset($user['password']);
             $_SESSION['user'] = $user;
             header('Location: '.BASEURL.'dashboard');
         }
@@ -32,7 +31,7 @@ class AuthController {
 
         $user = User::register([
             'name' => $post['name'],
-            'no_telp' => $post['no_telp'],
+            'telephone' => $post['no_telp'],
             'email' => $post['email'], 
             'username' => $post['username'], 
             'password' => $post['password']
@@ -45,6 +44,7 @@ class AuthController {
             header('Location: '.BASEURL.'register?failed=true');
         }
     }
+    
     static function logout() {
         $_SESSION = array();
 
@@ -55,7 +55,6 @@ class AuthController {
                 $params["secure"], $params["httponly"]
             );
         }
-
         session_destroy();
         header('Location: '.BASEURL);
     }
